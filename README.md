@@ -5,11 +5,72 @@
 - Selenium
 - Behave (BDD)
 
-### Requisitos para rodar o teste:
-- behave
-- selenium
-- nose
-- Chrome Driver no path do sistema
+### Instalações:
+
+- Instalar Python (Lembrar de marcar para configurar as path variables)
+- pip install selenium
+- pip install behave
+- pip install nose
+- Instalar Pycharm	
+
+### Configurar Variaveis de ambiente Python:
+
+Este Computador -> Propiedades -> Configurações avançadas do sistema -> Variavéis de ambiente
+Em Path adicione duas novas variaveis:
+
+PY_HOME:
+
+    C:\Users\seu_nome\AppData\Local\Programs\Python\Python37-32
+
+PATH:	
+
+    %PY_HOME%/Python/Python37-32/
+    %PY_HOME%/Python/Python37-32/Scripts
+
+### Adicionar Chromedriver nas Variaveis de ambiente:
+
+    Colocar o driver na pasta: C:\bin
+    Nas variaveis do sistemas -> PATH: C:\bin (depois do ;) 
+    Testar com: chromedriver.exe -v
+
+**OU:**
+
+    Cole os drivers na pasta Python\Python37-32\Scripts onde o python foi instalado.
+
+
+### Configurar Pycharm:
+
+Menu File -> Settings -> Project -> Project Interpreter -> Selecione a versão do Python instalada e confirme.
+
+### Instalar driver:
+
+Baixar drivers:
+
+- Chorome: https://sites.google.com/a/chromium.org/chromedriver/downloads
+
+- Edge e IE: https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+
+- Cole os drivers na pasta Python\Python37-32\Scripts onde o python foi instalado. 
+
+### Para rodar teste:
+
+Para executar uma feature especifica: 
+	
+	behave
+	behave features\nome_da_feature.feature
+	
+Para executar uma tag especifica: 
+
+	behave --tags=nome_da_tag
+	ou behave -t nome_da_tag
+		
+Para executar todas as tags com exceção de uma tag especifica, coloca o simbolo de menos na frente da tag:
+
+	behave --tags=-nome_da_tag
+		
+Para executar duas no mesmo comando:
+
+	behave -t=nome_da_tag -t=nome_da_tag
 
 ### Comandos PIP (Python Install Package):
 
@@ -33,18 +94,3 @@
     pip install -r requirements.txt (Instala pacotes listados no arquivo requirements.txt)
     pip uninstall -r requirements.txt (desinstala pacotes listados no arquivo requirements.txt)	
     pip freeze > requirements.txt (Cria lista/lista pacotes no arquivo requirements.txt)
-
-### Configurar Variaveis de ambiente Python:
-
-- Variaveis do sistemas:
-    - PY_HOME: C:\Users\seu_nome\AppData\Local\Programs\Python\Python37-32
-
-- PATH:
-    - %PY_HOME%\Scripts
-    - %PY_HOME%
-        
-### Adicionar Chromedriver nas Variaveis de ambiente:
-    
-- Colocar o driver na pasta: __C:\bin__
-- Nas variaveis do sistemas -> PATH: __C:\bin__ (depois do ;) 
-- Testar com: __chromedriver.exe -v__
