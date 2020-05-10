@@ -11,6 +11,10 @@ class Browser(object):
     # Maximiza a janela do browser ao ser iniciado
     driver.maximize_window()
 
+    # Retorna instancia do driver
+    def get_driver(self):
+        return self.driver
+
     # Fecha o browser
     def browser_quit(self):
         self.driver.quit()
