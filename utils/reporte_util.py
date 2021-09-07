@@ -1,18 +1,24 @@
-from pyhtmlreport import Report
-from browser import Browser
 import os
+
+from pyhtmlreport import Report
+
+from browser import Browser
 
 browser = Browser()
 ROOT_DIR = os.path.dirname('target/report/')
 
 
-class Reporte_util(object):
+class ReporteUtil(object):
     report = Report()
 
     def inicializa_report(self):
+        # Verificando se diretório existe
+        if not os.path.isdir(ROOT_DIR):
+            os.makedirs(ROOT_DIR)
+
         self.report.setup(
             report_folder=ROOT_DIR,
-            module_name='Tsstes no Google',
+            module_name='Testes no Google',
             release_name='Release Default',
             selenium_driver=browser.get_driver()
         )
@@ -24,18 +30,18 @@ class Reporte_util(object):
             test_number=numero_teste
         )
 
-    def log_print_pass(self, texto):
+    def log_print_pass(self, texto, screenshot=True):
         self.report.write_step(
             texto,
             status=self.report.status.Pass,
-            screenshot=True
+            screenshot=screenshot
         )
 
-    def log_print_fail(self, texto):
+    def log_print_fail(self, texto, screenshot=True):
         self.report.write_step(
             texto,
             status=self.report.status.Fail,
-            screenshot=True
+            screenshot=screenshot
         )
 
     def finaliza_report(self):

@@ -3,7 +3,7 @@ from selenium import webdriver
 
 class Browser(object):
     # Inicia o browser chrome, mas pode ser feito com outros como Firefox, Safari e IE
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome('C:/bin/chromedriver.exe')
 
     # Define o tempo maximo para carregamento da pagina
     driver.set_page_load_timeout(30)
